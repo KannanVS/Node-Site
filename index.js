@@ -16,11 +16,37 @@ app.get('/about', (req, res) => {
     });
 })
 
-app.get('/product', (req, res) => {
+app.get('/products', (req, res) => {
     res.render("product", {
         title: "Women's Collection"
     });
 })
 
+app.get('/product/:id', (req, res) => {
+    console.log(req.params.id)
+
+    var data = [
+        {
+            id: 1,
+            productName : 'T-shirt'
+        },
+        {
+            id: 2,
+            productName: 'Skirt'
+        }
+    ]
+
+    let result;
+
+    data.forEach((product) => {
+        if(product.id == req.params.id) {
+            result = product;
+            return true;
+        }
+    })
+
+    console.log(result);
+    
+}); 
 
 app.listen(3000);
