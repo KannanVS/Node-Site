@@ -17,7 +17,7 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/products', (req, res) => {
-    res.render("product", {
+    res.render("products", {
         title: "Women's Collection"
     });
 })
@@ -45,6 +45,10 @@ app.get('/product/:id', (req, res) => {
         }
     })
 
+    res.render("productdetail", {
+        title: 'Product Details',
+        product : result
+    })
     console.log(result);
     
 }); 
